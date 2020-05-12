@@ -5,7 +5,4 @@ where A.solid_type_id = B.solid_type_id;
 
 
 
-/* Mostrar el generador y la fecha de su pedido */
-SELECT U.user_first_name NombreGenerador, O.order_date fechaRecoleccion
-FROM users U, orders O
-WHERE U.user_id = O.generator_id 
+

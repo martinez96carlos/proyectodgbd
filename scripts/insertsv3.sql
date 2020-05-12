@@ -70,47 +70,61 @@ VALUES
 ('Acopiador', 'El que recolecta y acopia los residuos sólidos inorgánicos.', 1);
 
 
-/* Insertar en people */
-INSERT INTO people (
-	person_first_name,
-    person_second_name,
-    person_first_lastname,
-    person_second_lastname,
-    person_born_date,
-    person_gender,
-    person_email,
-    person_password,
-    person_phone,
-    person_state)
+/* Insertar en generators */
+INSERT INTO generators
+(
+generator_first_name,
+generator_second_name,
+generator_first_lastname,
+generator_second_lastname,
+generator_born_date,
+generator_gender,
+generator_email,
+generator_password,
+generator_phone,
+generator_place,
+generator_state
+)
 VALUES 
-('Carlos', 'Andres', 'Martinez', 'Cuellar', '1996-03-31', 'Masculino', 'martinez96carlos@gmail.com', '123456789', '67025211', 1),
-('Carlos', 'Alberto', 'Martinez', 'Uriarte', '1971-06-08', 'Masculino', 'martinez71carlos@gmail.com', '123456789', '72567964', 1),
-('Valeria', 'Andrea', 'Martinez', 'Cuellar',  '1998-08-20', 'Femenino', 'martinez98valeria@gmail.com', '123456789', '73049172', 1),
-('Silvia', 'Sandra', 'Cuellar', 'Zapata',  '1967-11-03', 'Femenino', 'cuellar67silvia@gmail.com', '123456789', '71550623', 1);
+('Carlos', 'Andres', 'Martinez', 'Cuellar', '1996-03-31', 'Masculino', 'martinez96carlos@gmail.com', '123456789', '67025211', 'Casa',1),
+('Carlos', 'Alberto', 'Martinez', 'Uriarte', '1971-06-08', 'Masculino', 'martinez71carlos@gmail.com', '123456789', '72567964', 'Edificio', 1),
+('Valeria', 'Andrea', 'Martinez', 'Cuellar',  '1998-08-20', 'Femenino', 'martinez98valeria@gmail.com', '123456789', '73049172', 'Condominio',1),
+('Silvia', 'Sandra', 'Cuellar', 'Zapata',  '1967-11-03', 'Femenino', 'cuellar67silvia@gmail.com', '123456789', '71550623', 'Casa', 1),
+('Fulana', 'Lucia', 'Gironda', 'Pantoja',  '1999-03-08', 'Femenino', 'girerd99virginie@gmail.com', '123456789', '71550623', 'Casa', 1);
 
-/*Insertar en generadores*/
-
-INSERT INTO generators (person_id, generator_place, generator_state)
-VALUES
-(1,'Casa',1),
-(2,'Edificio',1),
-(3,'Condiminio',1);
-
-/*Insertar en generadores*/
-
-INSERT INTO recolectors (group_id, city_id, role_id, person_id, recolector_ci, recolector_state)
-VALUES
-(1,1,1,4,'6962649',1);
-
+/* Insertar en recolectors */
+INSERT INTO recolectors
+(
+group_id,
+city_id,
+role_id,
+recolector_first_name,
+recolector_second_name,
+recolector_first_lastname,
+recolector_second_lastname,
+recolector_born_date,
+recolector_gender,
+recolector_email,
+recolector_password,
+recolector_phone,
+recolector_ci,
+recolector_state
+)
+VALUES 
+(1,1,1,'Juan', 'Antonio', 'Perez', 'Perez', '1996-03-31', 'Masculino', 'perez96juan@gmail.com', '123456789', '67025211', '987654321',1),
+(1,1,1,'Pedro', 'Alberto', 'Mesa', 'Uriarte', '1971-06-08', 'Masculino', 'mesa71pedro@gmail.com', '123456789', '72567964', '987321654', 1),
+(1,1,1,'Fulanito', 'Contreras', 'Garcia', 'Pantoja',  '1998-08-20', 'Masculino', 'garcia98fulanito@gmail.com', '123456789', '73049172', '654987321',1),
+(1,1,1,'Juana', 'Andrea', 'Olivares', 'Rojas',  '1967-11-03', 'Femenino', 'olivares67juana@gmail.com', '123456789', '71550623', '741852963', 1),
+(1,1,1,'Julia', 'Maria', 'Pereyra', 'Poma',  '1999-03-08', 'Femenino', 'pereyra99julia@gmail.com', '123456789', '71550623', '147258369', 1);
 
 
 /* insertar pedidos */ 
 insert into orders(location_id, generator_id, recolector_id, order_date, order_detail, order_image_url, order_state)
 values
-(1, 1, 1,'2020-05-01','Tengo papeles de oficina', 'http://jonsegador.com/wp-content/apezz.png',1),
-(2, 2, 1,'2020-04-21','Tengo botellas de vidrio', 'http://jonsegador.com/wp-content/apezz.png',1),
-(3, 3, 1,'2020-04-29','Tengo bolsas plasticas', 'http://jonsegador.com/wp-content/apezz.png',1),
-(4, 2, 1,'2020-03-01','Tengo latas de cerveza', 'http://jonsegador.com/wp-content/apezz.png',1),
+(1, 1, 5,'2020-05-01','Tengo papeles de oficina', 'http://jonsegador.com/wp-content/apezz.png',1),
+(2, 2, 4,'2020-04-21','Tengo botellas de vidrio', 'http://jonsegador.com/wp-content/apezz.png',1),
+(3, 3, 3,'2020-04-29','Tengo bolsas plasticas', 'http://jonsegador.com/wp-content/apezz.png',1),
+(4, 2, 2,'2020-03-01','Tengo latas de cerveza', 'http://jonsegador.com/wp-content/apezz.png',1),
 (5, 2, 1,'2020-03-27','Tengo periódico', 'http://jonsegador.com/wp-content/apezz.png',1);
 
 /* insertar recolecciones */

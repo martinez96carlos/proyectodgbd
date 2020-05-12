@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 8                                 */
-/* Created on:     5/11/2020 22:06:35                           */
+/* Created on:     5/12/2020 00:02:30                           */
 /*==============================================================*/
 
 
@@ -14,8 +14,6 @@ drop table LOCATIONS;
 
 drop table ORDERS;
 
-drop table PEOPLE;
-
 drop table RECOLECTIONS;
 
 drop table RECOLECTORS;
@@ -27,8 +25,8 @@ drop table SOLIDS;
 drop table SOLID_TYPES;
 
 drop table TRANSACTIONS;
-
 /*==============================================================*/
+
 /* Table: CITIES                                                */
 /*==============================================================*/
 create table CITIES (
@@ -47,7 +45,16 @@ create table CITIES (
 /*==============================================================*/
 create table GENERATORS (
    GENERATOR_ID         Serial               not null,
-   PERSON_ID            INT4                 null,
+   GENERATOR_FIRST_NAME VARCHAR(40)          null,
+   GENERATOR_SECOND_NAME VARCHAR(40)          null,
+   GENERATOR_FIRST_LASTNAME VARCHAR(40)          null,
+   GENERATOR_SECOND_LASTNAME VARCHAR(40)          null,
+   GENERATOR_BORN_DATE  date                 null,
+   GENERATOR_RATE       FLOAT8               null,
+   GENERATOR_GENDER     VARCHAR(20)          null,
+   GENERATOR_EMAIL      VARCHAR(40)          null,
+   GENERATOR_PASSWORD   VARCHAR(40)          null,
+   GENERATOR_PHONE      VARCHAR(20)          null,
    GENERATOR_PLACE      VARCHAR(50)          null,
    GENERATOR_STATE      INT4                 null,
    TR_ID                INT4                 null,
@@ -107,29 +114,6 @@ create table ORDERS (
 );
 
 /*==============================================================*/
-/* Table: PEOPLE                                                */
-/*==============================================================*/
-create table PEOPLE (
-   PERSON_ID            serial               not null,
-   PERSON_FIRST_NAME    VARCHAR(40)          null,
-   PERSON_SECOND_NAME   VARCHAR(40)          null,
-   PERSON_FIRST_LASTNAME VARCHAR(40)          null,
-   PERSON_SECOND_LASTNAME VARCHAR(40)          null,
-   PERSON_BORN_DATE     date                 null,
-   PERSON_RATE          FLOAT8               null,
-   PERSON_GENDER        VARCHAR(20)          null,
-   PERSON_EMAIL         VARCHAR(40)          null,
-   PERSON_PASSWORD      VARCHAR(40)          null,
-   PERSON_PHONE         VARCHAR(20)          null,
-   PERSON_STATE         INT4                 null,
-   TR_ID                INT4                 null,
-   TR_DATE              DATE                 null,
-   TR_USER_ID           INT4                 null,
-   TR_DETAIL            VARCHAR(200)         null,
-   constraint PK_PEOPLE primary key (PERSON_ID)
-);
-
-/*==============================================================*/
 /* Table: RECOLECTIONS                                          */
 /*==============================================================*/
 create table RECOLECTIONS (
@@ -153,7 +137,16 @@ create table RECOLECTORS (
    GROUP_ID             INT4                 null,
    CITY_ID              INT4                 null,
    ROLE_ID              INT4                 null,
-   PERSON_ID            INT4                 null,
+   RECOLECTOR_FIRST_NAME VARCHAR(40)          null,
+   RECOLECTOR_SECOND_NAME VARCHAR(40)          null,
+   RECOLECTOR_FIRST_LASTNAME VARCHAR(40)          null,
+   RECOLECTOR_SECOND_LASTNAME VARCHAR(40)          null,
+   RECOLECTOR_BORN_DATE date                 null,
+   RECOLECTOR_RATE      FLOAT8               null,
+   RECOLECTOR_GENDER    VARCHAR(20)          null,
+   RECOLECTOR_EMAIL     VARCHAR(40)          null,
+   RECOLECTOR_PASSWORD  VARCHAR(40)          null,
+   RECOLECTOR_PHONE     VARCHAR(20)          null,
    RECOLECTOR_CI        VARCHAR(20)          null,
    RECOLECTOR_STATE     INT4                 null,
    TR_ID                INT4                 null,
@@ -221,11 +214,6 @@ create table TRANSACTIONS (
    constraint PK_TRANSACTIONS primary key (TR_ID)
 );
 
-alter table GENERATORS
-   add constraint FK_GENERATO_REFERENCE_PEOPLE foreign key (PERSON_ID)
-      references PEOPLE (PERSON_ID)
-      on delete restrict on update restrict;
-
 alter table ORDERS
    add constraint FK_ORDERS_REFERENCE_GENERATO foreign key (GENERATOR_ID)
       references GENERATORS (GENERATOR_ID)
@@ -249,11 +237,6 @@ alter table RECOLECTIONS
 alter table RECOLECTIONS
    add constraint FK_RECOLECT_REFERENCE_ORDERS foreign key (ORDER_ID)
       references ORDERS (ORDER_ID)
-      on delete restrict on update restrict;
-
-alter table RECOLECTORS
-   add constraint FK_RECOLECT_REFERENCE_PEOPLE foreign key (PERSON_ID)
-      references PEOPLE (PERSON_ID)
       on delete restrict on update restrict;
 
 alter table RECOLECTORS
