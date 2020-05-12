@@ -1,5 +1,6 @@
+/* Inserts para la versión 3 de la base de datos */
 /* Insertar los tipos de  residuo*/
-INSERT INTO solid_type (solid_type_name, solid_type_description, solid_type_state)
+INSERT INTO solid_types (solid_type_name, solid_type_description, solid_type_state)
 VALUES
 ('Papel y Carton', 'Todo tipo papel, periódico, cartones y otros.', 1),
 ('Vidrio','Todas las botellas de vidrio, de cervezas, refrescos, gaseosas.', 1),
@@ -58,49 +59,59 @@ VALUES
 /* Insertar Grupo */
 INSERT INTO groups(group_name, group_description, group_state)
 VALUES
-('Recolectoras del Norte','Grupo Organizado de recolectores ubicados en la zona norte de Cochabamba.',1);
+('Eco-Recolectoras del Norte','Grupo Organizado de recolectores ubicados en la zona norte de Cochabamba.',1);
 
 
 
 /* Insertar Roles */
 INSERT INTO roles (role_name, role_description, role_state)
 VALUES
-('Recolector', 'Recolecta los residuos sólidos inorgánicos', 1),
-('Generador', 'Vecino que genera basura', 1);
+('Recolector de Base', 'Recolecta los residuos sólidos inorgánicos.', 1),
+('Acopiador', 'El que recolecta y acopia los residuos sólidos inorgánicos.', 1);
 
 
+/* Insertar en people */
+INSERT INTO people (
+	person_first_name,
+    person_second_name,
+    person_first_lastname,
+    person_second_lastname,
+    person_born_date,
+    person_gender,
+    person_email,
+    person_password,
+    person_phone,
+    person_state)
+VALUES 
+('Carlos', 'Andres', 'Martinez', 'Cuellar', '1996-03-31', 'Masculino', 'martinez96carlos@gmail.com', '123456789', '67025211', 1),
+('Carlos', 'Alberto', 'Martinez', 'Uriarte', '1971-06-08', 'Masculino', 'martinez71carlos@gmail.com', '123456789', '72567964', 1),
+('Valeria', 'Andrea', 'Martinez', 'Cuellar',  '1998-08-20', 'Femenino', 'martinez98valeria@gmail.com', '123456789', '73049172', 1),
+('Silvia', 'Sandra', 'Cuellar', 'Zapata',  '1967-11-03', 'Femenino', 'cuellar67silvia@gmail.com', '123456789', '71550623', 1);
 
+/*Insertar en generadores*/
 
-/* Insertar usuarios */
-insert into
-users(group_id,
-	  city_id,
-	  role_id,
-	  user_first_name,
-	  user_second_name,
-	  user_first_lastname,
-	  user_second_lastname,
-	  user_number_id,
-	  user_born_date,
-	  user_gender,
-	  user_email,
-	  user_password,
-	  user_phone,
-	  user_state)
-values
-(1, 1, 1, 'Carlos', 'Andres', 'Martinez', 'Cuellar', '6962649', '1996-03-31', 'Masculino', 'martinez96carlos@gmail.com', '123456789', '67025211', 1),
-(1, 1, 1, 'Waskar', 'Ernesto', 'Gomez', 'Fernandez', '9876543', '1995-11-29', 'Masculino', 'gomez96waskar@gmail.com', '123456789', '73500756', 1),
-(1, 1, 2, 'Virginie', 'Ludivine', 'Girerd', 'Gired', '6962651', '1999-03-08', 'Femenino', 'girerd96virginie@gmail.com', '123456789', '77771111', 1);
+INSERT INTO generators (person_id, generator_place, generator_state)
+VALUES
+(1,'Casa',1),
+(2,'Edificio',1),
+(3,'Condiminio',1);
+
+/*Insertar en generadores*/
+
+INSERT INTO recolectors (group_id, city_id, role_id, person_id, recolector_ci, recolector_state)
+VALUES
+(1,1,1,4,'6962649',1);
+
 
 
 /* insertar pedidos */ 
-insert into orders(location_id, generator_id, recolector_id, order_date, order_detail, order_image_url, order_place, order_state)
+insert into orders(location_id, generator_id, recolector_id, order_date, order_detail, order_image_url, order_state)
 values
-(1, 3, 1,'2020-05-01','Tengo papeles de oficina', 'http://jonsegador.com/wp-content/apezz.png','Casa',1),
-(2, 3, 2,'2020-04-21','Tengo botellas de vidrio', 'http://jonsegador.com/wp-content/apezz.png','Edificio',1),
-(3, 3, 1,'2020-04-29','Tengo bolsas plasticas', 'http://jonsegador.com/wp-content/apezz.png','Casa',1),
-(4, 3, 2,'2020-03-01','Tengo latas de cerveza', 'http://jonsegador.com/wp-content/apezz.png','Casa',1),
-(5, 3, 1,'2020-03-27','Tengo periódico', 'http://jonsegador.com/wp-content/apezz.png','Condominio',1);
+(1, 1, 1,'2020-05-01','Tengo papeles de oficina', 'http://jonsegador.com/wp-content/apezz.png',1),
+(2, 2, 1,'2020-04-21','Tengo botellas de vidrio', 'http://jonsegador.com/wp-content/apezz.png',1),
+(3, 3, 1,'2020-04-29','Tengo bolsas plasticas', 'http://jonsegador.com/wp-content/apezz.png',1),
+(4, 2, 1,'2020-03-01','Tengo latas de cerveza', 'http://jonsegador.com/wp-content/apezz.png',1),
+(5, 2, 1,'2020-03-27','Tengo periódico', 'http://jonsegador.com/wp-content/apezz.png',1);
 
 /* insertar recolecciones */
 insert into recolections (solid_id , order_id, recolection_weight, recolection_state)

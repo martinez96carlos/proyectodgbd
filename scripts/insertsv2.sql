@@ -1,3 +1,4 @@
+/* Inserts para la versión 3 de la base de datos */
 /* Insertar los tipos de  residuo*/
 INSERT INTO solid_type (solid_type_name, solid_type_description, solid_type_state)
 VALUES
@@ -65,13 +66,13 @@ VALUES
 /* Insertar Roles */
 INSERT INTO roles (role_name, role_description, role_state)
 VALUES
-('Recolector', 'Recolecta los residuos sólidos inorgánicos', 1),
-('Generador', 'Vecino que genera basura', 1);
+('Recolector de Base', 'Recolecta los residuos sólidos inorgánicos', 1),
+('Acopiador', 'Vecino que genera basura', 1);
 
 
 
 
-/* Insertar usuarios */
+/* Insertar recolectores */
 insert into
 users(group_id,
 	  city_id,
@@ -89,18 +90,35 @@ users(group_id,
 	  user_state)
 values
 (1, 1, 1, 'Carlos', 'Andres', 'Martinez', 'Cuellar', '6962649', '1996-03-31', 'Masculino', 'martinez96carlos@gmail.com', '123456789', '67025211', 1),
-(1, 1, 1, 'Waskar', 'Ernesto', 'Gomez', 'Fernandez', '9876543', '1995-11-29', 'Masculino', 'gomez96waskar@gmail.com', '123456789', '73500756', 1),
-(1, 1, 2, 'Virginie', 'Ludivine', 'Girerd', 'Gired', '6962651', '1999-03-08', 'Femenino', 'girerd96virginie@gmail.com', '123456789', '77771111', 1);
+(1, 1, 1, 'Waskar', 'Ernesto', 'Gomez', 'Fernandez', '9876543', '1995-11-29', 'Masculino', 'gomez96waskar@gmail.com', '123456789', '73500756', 1);
+
+/* Insertar Generadores */
+insert into
+users(
+	  user_first_name,
+	  user_second_name,
+	  user_first_lastname,
+	  user_second_lastname,
+	  user_born_date,
+	  user_gender,
+	  user_email,
+	  user_password,
+	  user_phone,
+	  user_state)
+values
+('Silvia', 'Sandra', 'Cuellar', 'Zapata', '3329240', '1967-11-03', 'Femenino', 'cuellar67silvia@gmail.com', '123456789', '71550623', 1),
+('Valeria', 'Andres', 'Martinez', 'Cuellar', '6962650', '1998-08-20', 'Femenino', 'martinez98valeria@gmail.com', '123456789', '73049172', 1);
+
 
 
 /* insertar pedidos */ 
 insert into orders(location_id, generator_id, recolector_id, order_date, order_detail, order_image_url, order_place, order_state)
 values
-(1, 3, 1,'2020-05-01','Tengo papeles de oficina', 'http://jonsegador.com/wp-content/apezz.png','Casa',1),
-(2, 3, 2,'2020-04-21','Tengo botellas de vidrio', 'http://jonsegador.com/wp-content/apezz.png','Edificio',1),
-(3, 3, 1,'2020-04-29','Tengo bolsas plasticas', 'http://jonsegador.com/wp-content/apezz.png','Casa',1),
-(4, 3, 2,'2020-03-01','Tengo latas de cerveza', 'http://jonsegador.com/wp-content/apezz.png','Casa',1),
-(5, 3, 1,'2020-03-27','Tengo periódico', 'http://jonsegador.com/wp-content/apezz.png','Condominio',1);
+(1, 1, 1,'2020-05-01','Tengo papeles de oficina', 'http://jonsegador.com/wp-content/apezz.png','Casa',1),
+(2, 2, 2,'2020-04-21','Tengo botellas de vidrio', 'http://jonsegador.com/wp-content/apezz.png','Edificio',1),
+(3, 1, 1,'2020-04-29','Tengo bolsas plasticas', 'http://jonsegador.com/wp-content/apezz.png','Casa',1),
+(4, 1, 1,'2020-03-01','Tengo latas de cerveza', 'http://jonsegador.com/wp-content/apezz.png','Casa',1),
+(5, 2, 2,'2020-03-27','Tengo periódico', 'http://jonsegador.com/wp-content/apezz.png','Condominio',1);
 
 /* insertar recolecciones */
 insert into recolections (solid_id , order_id, recolection_weight, recolection_state)
