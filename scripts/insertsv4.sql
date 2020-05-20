@@ -44,11 +44,11 @@ generator_picture_url,
 generator_state
 )
 VALUES 
-('Carlos', 'Andres', 'Martinez', 'Cuellar', '1996-03-31',0, 'Masculino', 'martinez96carlos@gmail.com', '123456789', '67025211', '65498721', 2,'',1),
-('Alberto', 'Juan', 'Martinez', 'Uriarte', '1971-06-08',0, 'Masculino', 'martinez71carlos@gmail.com', '123456789', '72567964', '64894612', 1,'', 1),
-('Valeria', 'Andrea', 'Martinez', 'Cuellar',  '1998-08-20',0, 'Femenino', 'martinez98valeria@gmail.com', '123456789', '73049172', '98412654', 3,'',1),
-('Silvia', 'Sandra', 'Cuellar', 'Zapata',  '1967-11-03',0, 'Femenino', 'cuellar67silvia@gmail.com', '123456789', '71550623','54498451', 2,'', 1),
-('Fulana', 'Lucia', 'Gironda', 'Pantoja',  '1999-03-08',0,'Femenino', 'girerd99virginie@gmail.com', '123456789', '71550623','89186345', 2,'', 1);
+('Carlos', 'Andres', 'Martinez', 'Cuellar', '1996-03-31',0.0, 0, 'martinez96carlos@gmail.com', '123456789', '67025211', '65498721', 2,'',1),
+('Alberto', 'Juan', 'Martinez', 'Uriarte', '1971-06-08',0.0, 0, 'martinez71carlos@gmail.com', '123456789', '72567964', '64894612', 1,'', 1),
+('Valeria', 'Andrea', 'Martinez', 'Cuellar',  '1998-08-20', 0.0, 1, 'martinez98valeria@gmail.com', '123456789', '73049172', '98412654', 3,'',1),
+('Silvia', 'Sandra', 'Cuellar', 'Zapata',  '1967-11-03',0.0, 1, 'cuellar67silvia@gmail.com', '123456789', '71550623','54498451', 2,'', 1),
+('Fulana', 'Lucia', 'Gironda', 'Pantoja',  '1999-03-08',0.0,1, 'girerd99virginie@gmail.com', '123456789', '71550623','89186345', 2,'', 1);
 
 /* Insertar en recolectors */
 INSERT INTO recolectors
@@ -69,21 +69,21 @@ recolector_picture_url,
 recolector_state
 )
 VALUES 
-('Juan', 'Antonio', 'Perez', 'Perez', '1996-03-31', 'Masculino', 'perez96juan@gmail.com', '123456789', '67025211', '987654321',1,'Eco Recolectoras del Norte','',1),
-('Pedro', 'Alberto', 'Mesa', 'Uriarte', '1971-06-08', 'Masculino', 'mesa71pedro@gmail.com', '123456789', '72567964', '987321654', 2,'Eco Recolectoras del Norte','',1),
-('Fulanito', 'Contreras', 'Garcia', 'Pantoja',  '1998-08-20', 'Masculino', 'garcia98fulanito@gmail.com', '123456789', '73049172', '654987321',3,'Eco Recolectoras del Norte','',1),
-('Juana', 'Andrea', 'Olivares', 'Rojas',  '1967-11-03', 'Femenino', 'olivares67juana@gmail.com', '123456789', '71550623', '741852963', 3,'Eco Recolectoras del Norte','',1),
-('Julia', 'Maria', 'Pereyra', 'Poma',  '1999-03-08', 'Femenino', 'pereyra99julia@gmail.com', '123456789', '71550623', '147258369', 4,'Eco Recolectoras del Norte','',1);
+('Juan', 'Antonio', 'Perez', 'Perez', '1996-03-31', 0, 'perez96juan@gmail.com', '123456789', '67025211', '987654321',1,'Eco Recolectoras del Norte','',1),
+('Pedro', 'Alberto', 'Mesa', 'Uriarte', '1971-06-08', 0, 'mesa71pedro@gmail.com', '123456789', '72567964', '987321654', 2,'Eco Recolectoras del Norte','',1),
+('Fulanito', 'Contreras', 'Garcia', 'Pantoja', '1998-08-20', 0, 'garcia98fulanito@gmail.com', '123456789', '73049172', '654987321',3,'Eco Recolectoras del Norte','',1),
+('Juana', 'Andrea', 'Olivares', 'Rojas',  '1967-11-03',1, 'olivares67juana@gmail.com', '123456789', '71550623', '741852963', 3,'Eco Recolectoras del Norte','',1),
+('Julia', 'Maria', 'Pereyra', 'Poma',  '1999-03-08', 1, 'pereyra99julia@gmail.com', '123456789', '71550623', '147258369', 4,'Eco Recolectoras del Norte','',1);
 
 
 /* insertar pedidos */ 
 insert into orders(generator_id, recolector_id, order_date, order_detail, order_image_url, order_rate, order_latitude, order_longitude, order_state)
 values
-(1, 5,'2020-05-01','Tengo papeles de oficina', '',0.0,'-16.546613', '-68.075107',1),
-(2, 4,'2020-04-21','Tengo botellas de vidrio', '',0.0,'-16.546469', '-68.074206',1),
-(3, 3,'2020-04-29','Tengo bolsas plasticas', '',0.0,'-16.546695', '-68.075300',1),
-(2, 2,'2020-03-01','Tengo latas de cerveza', '',0.0,'-16.543815', '-68.076427', 1),
-(2, 1,'2020-03-27','Tengo periódico', '',0.0,'-16.545409', '-68.078004',1);
+(1, 5,'2020-05-01 15:04','Tengo papeles de oficina', '',0.0,'-16.546613', '-68.075107',1),
+(2, 4,'2020-04-21 12:40','Tengo botellas de vidrio', '',0.0,'-16.546469', '-68.074206',1),
+(3, 3,'2020-04-29 16:15','Tengo bolsas plasticas', '',0.0,'-16.546695', '-68.075300',1),
+(2, 2,'2020-03-01 10:20','Tengo latas de cerveza', '',0.0,'-16.543815', '-68.076427', 1),
+(2, 1,'2020-03-27 15:15','Tengo periódico', '',0.0,'-16.545409', '-68.078004',1);
 
 /* insertar recolecciones */
 insert into recolections (solid_id , order_id, recolection_weight, recolection_state)

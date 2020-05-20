@@ -1,0 +1,134 @@
+/* Recolecciones  ***************************************** */
+
+recolecciones por id de orden -----------
+GET
+http://172.26.1.98:3000/orderpick/
+
+Body
+{ 
+	"order_id": 6,
+	"recolector_id": 5 
+}
+
+
+
+/* Usuarios ***************************************** */
+
+registrar generador ----------------------
+POST
+http://172.26.1.98:3000/createge
+
+body
+{
+	"generator_first_name":"Valex",
+	"generator_second_name":"Moon",
+	"generator_first_lastname":"Valerosa",
+	"generator_second_lastname":"Strong",
+	"generator_born_date":"1998-08-20",
+	"generator_gender":1,
+	"generator_email":"valex@gmail.com",
+	"generator_password":"123456789",
+	"generator_phone":"73049172",
+	"generator_place": 2,
+	"generator_ci":"6962650"
+}
+
+
+
+registrar recolector ----------------------
+POST
+http://172.26.1.98:3000/createre
+
+body
+{
+	"recolector_first_name": "charlie",
+	"recolector_second_name":"festi",
+	"recolector_first_lastname":"charlitox",
+	"recolector_second_lastname":"charlitox",
+	"recolector_born_date":"1996-03-31",
+	"recolector_gender":0,
+	"recolector_email":"charlie@gmail.com",
+	"recolector_password":"123456789",
+	"recolector_phone":"67025211",
+	"recolector_ci":"6962649",
+	"recolector_city": 2
+}
+
+iniciar sesión ----------------------
+GET
+http://172.26.1.98:3000/login
+
+body
+{
+	"email": "mesa71pedro@gmail.com",
+	"pass": "123456789"
+}
+
+
+
+
+/* Residuos solidos ***************************************** */
+
+obtener todos los residuos ----------------------
+GET
+http://172.26.1.98:3000/solids
+
+
+
+/* Residuos solidos ***************************************** */
+
+Obtener todas las ordenes ----------------------
+GET
+http://172.26.1.98:3000/orders
+
+
+
+
+
+/* Ordenes ***************************************** */
+
+Crear orden ----------------------
+POST
+http://172.26.1.98:3000/orders
+body
+{
+"generator_id" : 5,
+"order_date" : "2020-05-01 10:15:00",
+"order_detail" : "Tengo papeles de oficina",
+"order_image_url" : "",
+"order_latitude" : "-16.546613",
+"order_longitude" : "-68.075107"
+}
+
+
+Obtener detalle de orden por su id ---------------------- /idorden en la url
+GET
+http://172.26.1.98:3000/orders/4
+
+
+Obtener orden mediante id del generador ----------------------  /idgenerador en la url
+GET
+http://172.26.1.98:3000/ordergenerator/2
+
+
+
+Obtener orden mediante id del generador ----------------------  /idrecolector en la url
+GET
+
+http://172.26.1.98:3000/orderrecolector/5
+
+
+recolectar orden -------------------------------
+PUT
+http://172.26.1.98:3000/orderpick
+
+body
+{ 
+	"order_id": 6,
+	"recolector_id": 5 
+}
+
+
+Eliminar logicamente una orden ----------------------------------------------- /idorden en la url
+PUT
+http://172.26.1.98:3000/orders/9
