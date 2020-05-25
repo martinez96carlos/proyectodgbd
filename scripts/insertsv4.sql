@@ -44,11 +44,9 @@ generator_picture_url,
 generator_state
 )
 VALUES 
-('Carlos', 'Andres', 'Martinez', 'Cuellar', '1996-03-31',0.0, 0, 'martinez96carlos@gmail.com', '123456789', '67025211', '65498721', 2,'',1),
-('Alberto', 'Juan', 'Martinez', 'Uriarte', '1971-06-08',0.0, 0, 'martinez71carlos@gmail.com', '123456789', '72567964', '64894612', 1,'', 1),
-('Valeria', 'Andrea', 'Martinez', 'Cuellar',  '1998-08-20', 0.0, 1, 'martinez98valeria@gmail.com', '123456789', '73049172', '98412654', 3,'',1),
-('Silvia', 'Sandra', 'Cuellar', 'Zapata',  '1967-11-03',0.0, 1, 'cuellar67silvia@gmail.com', '123456789', '71550623','54498451', 2,'', 1),
-('Fulana', 'Lucia', 'Gironda', 'Pantoja',  '1999-03-08',0.0,1, 'girerd99virginie@gmail.com', '123456789', '71550623','89186345', 2,'', 1);
+('generadoruno', 'generadoruno', 'generadoruno', 'generadoruno', '1991-01-01',0.0, 0, 'generadoruno@gmail.com', '$2b$10$4s9E8mDdM/KuuXKnQ4H2lutbS/vnAqQJhiBGIWPEmYEf83Vi.GfG.', '66661111', '123456789', 2,'',1),
+('generadordos', 'generadordos', 'generadordos', 'generadordos', '1991-01-02',0.0, 0, 'generadordos@gmail.com', '$2b$10$EK0.DTWLnNzsBRru9LGBDOu1d95qzRQaBnNx3MZbesbiukoj1QUlG', '66661111', '123456781', 2,'',1);
+
 
 /* Insertar en recolectors */
 INSERT INTO recolectors
@@ -66,45 +64,34 @@ recolector_ci,
 recolector_city,
 recolector_group,
 recolector_picture_url,
+recolector_rate,
 recolector_state
 )
 VALUES 
-('Juan', 'Antonio', 'Perez', 'Perez', '1996-03-31', 0, 'perez96juan@gmail.com', '123456789', '67025211', '987654321',1,'Eco Recolectoras del Norte','',1),
-('Pedro', 'Alberto', 'Mesa', 'Uriarte', '1971-06-08', 0, 'mesa71pedro@gmail.com', '123456789', '72567964', '987321654', 2,'Eco Recolectoras del Norte','',1),
-('Fulanito', 'Contreras', 'Garcia', 'Pantoja', '1998-08-20', 0, 'garcia98fulanito@gmail.com', '123456789', '73049172', '654987321',3,'Eco Recolectoras del Norte','',1),
-('Juana', 'Andrea', 'Olivares', 'Rojas',  '1967-11-03',1, 'olivares67juana@gmail.com', '123456789', '71550623', '741852963', 3,'Eco Recolectoras del Norte','',1),
-('Julia', 'Maria', 'Pereyra', 'Poma',  '1999-03-08', 1, 'pereyra99julia@gmail.com', '123456789', '71550623', '147258369', 4,'Eco Recolectoras del Norte','',1);
+('recolectoruno', 'recolectoruno', 'recolectoruno', 'recolectoruno', '1992-02-01', 0, 'recolectoruno@gmail.com', '$2b$10$Dgf./jH24fNTsiyiy.8rMOchbXm.ZTUTxd/hw2JnYTpNModFgnedm', '77771111', '987654321',2,'Eco-Recolectoras del Norte','',0.0,1),
+('recolectordos', 'recolectordos', 'recolectordos', 'recolectordos', '1971-06-08', 0, 'recolectordos@gmail.com', '$2b$10$Z2eqhLQan3dJUCtXmHfNV.0hIqxTY0f4P51.JaLun2l4ekHSCS066', '77772222', '987654329', 2,'Eco-Recolectoras del Norte','',0.0,1);
 
 
 /* insertar pedidos */ 
-insert into orders(generator_id, recolector_id, order_date, order_detail, order_image_url, order_rate, order_latitude, order_longitude, order_state)
+insert into orders(generator_id, recolector_id, order_date, order_detail, order_image_url, order_rate,order_recolection_rate, order_latitude, order_longitude, order_state)
 values
-(1, 5,'2020-05-01 15:04','Tengo papeles de oficina', '',0.0,'-16.546613', '-68.075107',1),
-(2, 4,'2020-04-21 12:40','Tengo botellas de vidrio', '',0.0,'-16.546469', '-68.074206',1),
-(3, 3,'2020-04-29 16:15','Tengo bolsas plasticas', '',0.0,'-16.546695', '-68.075300',1),
-(2, 2,'2020-03-01 10:20','Tengo latas de cerveza', '',0.0,'-16.543815', '-68.076427', 1),
-(2, 1,'2020-03-27 15:15','Tengo periódico', '',0.0,'-16.545409', '-68.078004',1);
+(1, 2,'2020-05-01 11:11','Tengo papeles de oficina', '',0.0, 0.0,'-16.546613', '-68.075107',1),
+(2, 1,'2020-05-02 12:12','Tengo botellas de vidrio', '',0.0, 0.0,'-16.546469', '-68.074206',1);
 
 /* insertar recolecciones */
 insert into recolections (solid_id , order_id, recolection_weight, recolection_state)
 values
-(1,1,3,1),
-(2,1,2.4,1),
-(3,1,3.8,1),
-(7,1,1,1),
-(1,2,3,1),
-(3,2,5,1),
-(4,2,6,1),
-(7,2,1.7,1),
-(1,3,4,1),
-(3,3,4.2,1),
-(4,3,6,1),
-(10,3,14.5,1),
-(6,4,11.7,1),
-(3,4,1,1),
-(3,4,2,1),
-(12,4,3,1),
-(7,5,2,1),
-(1,5,1.6,1),
-(8,5,1.7,1),
-(9,5,3.8,1);
+(1, 1, 1.6, 1 ),
+(3, 1, 2, 1),
+(2, 1, 3.4, 1),
+(4, 1, 0.7, 1),
+(6, 2, 4, 1),
+(7, 2, 5.7, 1);
+
+/* Passowrd generador 1 
+$2b$10$4s9E8mDdM/KuuXKnQ4H2lutbS/vnAqQJhiBGIWPEmYEf83Vi.GfG.
+$2b$10$EK0.DTWLnNzsBRru9LGBDOu1d95qzRQaBnNx3MZbesbiukoj1QUlG
+
+Password recolector 1
+$2b$10$Dgf./jH24fNTsiyiy.8rMOchbXm.ZTUTxd/hw2JnYTpNModFgnedm
+$2b$10$Z2eqhLQan3dJUCtXmHfNV.0hIqxTY0f4P51.JaLun2l4ekHSCS066*/
