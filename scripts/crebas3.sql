@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 8                                 */
-/* Created on:     5/10/2020 18:37:53                           */
+/* Created on:     5/26/2020 09:05:07                           */
 /*==============================================================*/
 
 
@@ -74,6 +74,8 @@ create table ORDERS (
    ORDER_ID             Serial               not null,
    LOCATION_ID          INT4                 null,
    USER_ID              INT4                 null,
+   USE_USER_ID          INT4                 null,
+   ORDER_RECOLECTOR_ID  INT4                 null,
    ORDER_DATE           DATE                 not null,
    ORDER_DETAIL         VARCHAR(250)         not null,
    ORDER_IMAGE_URL      VARCHAR(200)         not null,
@@ -93,7 +95,6 @@ create table RECOLECTIONS (
    RECOLECTION_ID       Serial               not null,
    SOLID_ID             INT4                 null,
    ORDER_ID             INT4                 null,
-   USER_ID              INT4                 null,
    RECOLECTION_WEIGHT   FLOAT8               not null,
    RECOLECTION_STATE    INT4                 not null,
    TR_ID                INT4                 null,
@@ -189,7 +190,12 @@ create table USERS (
 );
 
 alter table ORDERS
-   add constraint FK_ORDERS_REFERENCE_USERS foreign key (USER_ID)
+   add constraint FK_ORDERS_REFERENCE_USERS_1 foreign key (USE_USER_ID)
+      references USERS (USER_ID)
+      on delete restrict on update restrict;
+
+alter table ORDERS
+   add constraint FK_ORDERS_REFERENCE_USERS_2 foreign key (USER_ID)
       references USERS (USER_ID)
       on delete restrict on update restrict;
 
@@ -206,11 +212,6 @@ alter table RECOLECTIONS
 alter table RECOLECTIONS
    add constraint FK_RECOLECT_REFERENCE_ORDERS foreign key (ORDER_ID)
       references ORDERS (ORDER_ID)
-      on delete restrict on update restrict;
-
-alter table RECOLECTIONS
-   add constraint FK_RECOLECT_REFERENCE_USERS foreign key (USER_ID)
-      references USERS (USER_ID)
       on delete restrict on update restrict;
 
 alter table SOLIDS
