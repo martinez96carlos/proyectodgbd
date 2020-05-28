@@ -45,7 +45,7 @@ generator_state
 )
 VALUES 
 ('generadoruno', 'generadoruno', 'generadoruno', 'generadoruno', '1991-01-01',0.0, 0, 'generadoruno@gmail.com', '$2b$10$4s9E8mDdM/KuuXKnQ4H2lutbS/vnAqQJhiBGIWPEmYEf83Vi.GfG.', '66661111', '123456789', 2,'',1),
-('generadordos', 'generadordos', 'generadordos', 'generadordos', '1991-01-02',0.0, 0, 'generadordos@gmail.com', '$2b$10$EK0.DTWLnNzsBRru9LGBDOu1d95qzRQaBnNx3MZbesbiukoj1QUlG', '66661111', '123456781', 2,'',1);
+('generadordos', 'generadordos', 'generadordos', 'generadordos', '1991-01-02',0.0, 0, 'generadordos@gmail.com', '$2b$10$EK0.DTWLnNzsBRru9LGBDOu1d95qzRQaBnNx3MZbesbiukoj1QUlG', '66662222', '123456781', 2,'',1);
 
 
 /* Insertar en recolectors */
@@ -69,14 +69,16 @@ recolector_state
 )
 VALUES 
 ('recolectoruno', 'recolectoruno', 'recolectoruno', 'recolectoruno', '1992-02-01', 0, 'recolectoruno@gmail.com', '$2b$10$Dgf./jH24fNTsiyiy.8rMOchbXm.ZTUTxd/hw2JnYTpNModFgnedm', '77771111', '987654321',2,'Eco-Recolectoras del Norte','',0.0,1),
-('recolectordos', 'recolectordos', 'recolectordos', 'recolectordos', '1971-06-08', 0, 'recolectordos@gmail.com', '$2b$10$Z2eqhLQan3dJUCtXmHfNV.0hIqxTY0f4P51.JaLun2l4ekHSCS066', '77772222', '987654329', 2,'Eco-Recolectoras del Norte','',0.0,1);
+('recolectordos', 'recolectordos', 'recolectordos', 'recolectordos', '1992-02-02', 0, 'recolectordos@gmail.com', '$2b$10$Z2eqhLQan3dJUCtXmHfNV.0hIqxTY0f4P51.JaLun2l4ekHSCS066', '77772222', '987654322', 2,'Eco-Recolectoras del Norte','',0.0,1),
+('recolectortres', 'recolectortres', 'recolectortres', 'recolectortres', '1992-02-03', 0, 'recolectortres@gmail.com', '$2b$10$7ohek.rqBSdxM4WarPJEeu/5lwN0BsecrQw61UkasiJcadebXipEa', '77773333', '987654323', 2,'Eco-Recolectoras del Norte','',0.0,1);
 
 
 /* insertar pedidos */ 
 insert into orders(generator_id, recolector_id, order_date, order_detail, order_image_url, order_rate,order_recolection_rate, order_latitude, order_longitude, order_state)
 values
-(1, 2,'2020-05-01 11:11','Tengo papeles de oficina', '',0.0, 0.0,'-16.546613', '-68.075107',1),
-(2, 1,'2020-05-02 12:12','Tengo botellas de vidrio', '',0.0, 0.0,'-16.546469', '-68.074206',1);
+(1, 2,'2020-05-01 11:11','Tengo papeles de oficina', '',0.0, 0.0,'-16.546613', '-68.075107',2),
+(2, 1,'2020-05-02 12:12','Tengo botellas de vidrio', '',0.0, 0.0,'-16.546469', '-68.074206',2),
+(1, null,'2020-05-03 13:13','Tengo botellas de vidrio', '',0.0, 0.0,'-16.546312', '-68.074206',0);
 
 /* insertar recolecciones */
 insert into recolections (solid_id , order_id, recolection_weight, recolection_state)
