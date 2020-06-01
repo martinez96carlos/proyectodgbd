@@ -71,8 +71,8 @@ generator_picture_url,
 generator_state
 )
 VALUES 
-('generadoruno', 'generadoruno', 'generadoruno', 'generadoruno', '1991-01-01',0.0, 0, 'generadoruno@gmail.com', '$2b$10$4s9E8mDdM/KuuXKnQ4H2lutbS/vnAqQJhiBGIWPEmYEf83Vi.GfG.', '66661111', '123456789', 2,'',1),
-('generadordos', 'generadordos', 'generadordos', 'generadordos', '1991-01-02',0.0, 0, 'generadordos@gmail.com', '$2b$10$EK0.DTWLnNzsBRru9LGBDOu1d95qzRQaBnNx3MZbesbiukoj1QUlG', '66662222', '123456781', 2,'',1);
+('generadoruno', 'generadoruno', 'generadoruno', 'generadoruno', '1991-01-01',0.0, 0, 'generadoruno@gmail.com', '$2b$10$9YcpxLyLP3KpnQDHYrzXN.pYIf3GKHcwSZudwBZVXMxlHz3rwcLDe', '66661111', '123456789', 2,'',1),
+('generadordos', 'generadordos', 'generadordos', 'generadordos', '1991-01-02',0.0, 0, 'generadordos@gmail.com', '$2b$10$9YcpxLyLP3KpnQDHYrzXN.pYIf3GKHcwSZudwBZVXMxlHz3rwcLDe', '66662222', '123456781', 2,'',1);
 
 
 /* Insertar en recolectors */
@@ -125,7 +125,9 @@ Password recolector 1
 $2b$10$Dgf./jH24fNTsiyiy.8rMOchbXm.ZTUTxd/hw2JnYTpNModFgnedm
 $2b$10$Z2eqhLQan3dJUCtXmHfNV.0hIqxTY0f4P51.JaLun2l4ekHSCS066*/
 
-
+/* Password 123456 
+$2b$10$9YcpxLyLP3KpnQDHYrzXN.pYIf3GKHcwSZudwBZVXMxlHz3rwcLDe
+*/
 
 
 /*Base de datos para pruebas*/
