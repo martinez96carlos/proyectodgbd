@@ -27,7 +27,7 @@ VALUES
 ('Vidrio','Todas las botellas de vidrio, de cervezas, refrescos, gaseosas.', 1),
 ('Plastico', 'Bolsas de yogurt, botellas de plastico , bidones, bolsas.', 1),
 ('Metales', 'Latas de Aluminio, ollas, sartenes, toda la chatarra.', 1),
-('Otros', 'Aceites, yute, goma, liquidos', 1);
+('Otros', 'Aparatos eléctricos, electrónicos, ropa.', 1);
 
 
 
@@ -50,8 +50,9 @@ VALUES
 (4,'Ollas de Aluminio',' Diferentes ollas para cocinar, metal más rígido.',1),
 (4,'Chatarra u Olajata','Restos de computadoras, electrodomésticos.',1),
 (5,'Aceites', 'Otro tipo de residuos',1),
-(5,'Gomas, caucho', 'Otro tipo de residuos',1),
-(5,'Liquidos', 'Detergente, jabon',1);
+(5,'Telas', 'Otro tipo de residuos',1),
+(5,'Ropa', 'Otro tipo de residuos',1),
+(5,'Corchos', 'Otro tipo de residuos',1);
 
 INSERT INTO generators
 (
