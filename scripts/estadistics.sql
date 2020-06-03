@@ -32,7 +32,8 @@ group by A.generator_place;
 select  TO_CHAR(TO_DATE(A.mes::text, 'MM'),'Month') AS "Mes", round( CAST(COALESCE(sum(B.weight),0) as decimal), 2) as volumen
 from dim_time A
 LEFT JOIN fact_recolection B ON B.time_id = A.time_id
-group by A.mes;
+group by A.mes
+order by A.mes asc
 
 /*Volumen por mes PERSONAL*/
 select TO_CHAR(TO_DATE(A.mes::text, 'MM'),'Month') AS "Mes", round( CAST(COALESCE(sum(B.weight),0) as decimal), 2) as volumen
@@ -40,7 +41,8 @@ from dim_time A
 LEFT JOIN fact_recolection B ON B.time_id = A.time_id
 LEFT JOIN dim_orders C on B.order_id = C.order_id
 where C.recolector_id = 3
-group by A.mes;
+group by A.mes
+order by A.mes asc
 
 
 
